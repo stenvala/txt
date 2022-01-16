@@ -1,0 +1,23 @@
+@import '~@angular/material/theming';
+
+.icon {
+  padding-top: 8px;
+  width: 40px;
+  text-align: center;
+}
+.text {
+  padding-right: 20px;
+}
+
+div {
+  border-bottom: 1px solid lightgray;
+  min-width: 300px;
+}
+
+div:last-of-type {
+  border-bottom: none;
+}
+
+.top-spacer {
+  margin-top: 10px;
+}

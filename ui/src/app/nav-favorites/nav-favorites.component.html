@@ -1,0 +1,30 @@
+<div class="top-spacer">
+  <a mat-list-item>
+    <span>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Sivunumero"
+          type="number"
+          [(ngModel)]="page"
+          (keyup)="enter()"
+        />
+      </mat-form-field>
+    </span>
+    <span class="global__flex-spacer"></span>
+    <mat-icon
+      class="icon"
+      fontSet="fa"
+      fontIcon="fa-times"
+      (click)="clear()"
+    ></mat-icon>
+  </a>
+</div>
+
+<div *ngFor="let i of pages">
+  <a mat-list-item (click)="select(i)">
+    <span class="text">{{ i.page }}: {{ i.name }}</span>
+    <span class="global__flex-spacer"></span>
+    <mat-icon class="icon" fontSet="fa" fontIcon="fa-angle-right"></mat-icon>
+  </a>
+</div>

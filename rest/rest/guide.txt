@@ -1,0 +1,25 @@
+stenvala@TNN-debian:/etc/systemd/system$ cat dotnet-txt.service 
+-> Must have following content
+[Unit]
+Description=TXT .dotnet backend
+
+[Service]
+WorkingDirectory=/home/stenvala/live/txt/current-back
+ExecStart=/usr/bin/dotnet /home/stenvala/live/txt/current-back/rest.dll
+Restart=always
+User=www-data
+Group=www-data
+# Restart service after 10 seconds if the dotnet service crashes:
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=dotnet-txt
+Environment=ASPNETCORE_ENVIRONMENT=Production
+
+[Install]
+WantedBy=multi-user.target
+
+
+sudo visudo
+-> Following lines must be there
+stenvala        ALL=(ALL) NOPASSWD: /bin/systemctl restart dotnet-txt.service
+stenvala        ALL=(ALL) NOPASSWD: /bin/systemctl status dotnet-txt.service

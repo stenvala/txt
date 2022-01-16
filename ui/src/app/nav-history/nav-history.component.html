@@ -1,0 +1,9 @@
+<ng-container *mobxAutorun="{ detach: true }">
+  <div *ngFor="let i of nav.history">
+    <a mat-list-item (click)="select(i)">
+      <mat-icon class="icon" fontSet="fa" fontIcon="fa-angle-left"></mat-icon>      
+      <span class="global__flex-spacer"></span>
+      <span class="text">{{i}}</span>
+    </a>
+  </div>
+</ng-container>

@@ -1,0 +1,55 @@
+<nav [class.is-mobile]="mobileQueryLeft.matches">
+
+  <mat-toolbar color="primary" class="mat-elevation-z5">
+    <mat-icon class="icon" fontSet="fa" fontIcon="fa-heart" (click)="toggleLeftNav()"></mat-icon>
+    <span class="global__flex-spacer"></span>
+    <span>TXT {{nav.currentPage}}</span>
+    <span class="global__flex-spacer"></span>    
+    <mat-icon class="icon" fontSet="fa" fontIcon="fa-history" (click)="toggleRightNav()"></mat-icon>          
+  </mat-toolbar>
+
+  <mat-sidenav-container>
+
+    <mat-sidenav #snavLeft 
+      [mode]="mobileQueryLeft.matches ? 'push' : 'side'" [fixedInViewport]="mobileQueryLeft.matches"            
+      fixedBottomGap="56"
+      fixedTopGap="56">
+      <mat-nav-list>
+        <app-nav-favorites (onNavigation)="closeLeftNavIfNeeded()"></app-nav-favorites>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div class="global__container">
+        <mat-card>
+          <router-outlet></router-outlet>
+        </mat-card>
+      </div>
+    </mat-sidenav-content>
+
+    <mat-sidenav #snavRight [position]="'end'" 
+    [mode]="mobileQueryLeft.matches ? 'over' : 'side'" [fixedInViewport]="mobileQueryLeft.matches"
+      fixedBottomGap="56"
+      fixedTopGap="56">
+      <mat-nav-list>
+        <app-nav-history (onNavigation)="closeRightNavIfNeeded()"></app-nav-history>                
+      </mat-nav-list>      
+    </mat-sidenav>
+
+  </mat-sidenav-container>
+
+  <mat-toolbar color="ascent" class="mat-elevation-z4 global__center">
+    <span class="global__flex-spacer"></span>
+    <span>
+      <button mat-flat-button color="warn" (click)="plus(-10)">-10</button>      
+      <button mat-flat-button color="warn" (click)="plus(-1)">-1</button>
+      <button mat-flat-button color="primary" (click)="reload()">
+        <mat-icon class="button" fontSet="fa" fontIcon="fa-recycle"></mat-icon>
+      </button>
+      <button mat-flat-button color="warn" (click)="plus(1)">+1</button>
+      <button mat-flat-button color="warn" (click)="plus(10)">+10</button>
+    </span>
+    <span class="global__flex-spacer"></span>
+  </mat-toolbar>
+
+</nav>

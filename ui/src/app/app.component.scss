@@ -1,0 +1,89 @@
+@import '~@angular/material/theming';
+
+nav {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;  
+}
+
+mat-icon.icon {
+  font-size: 100%;
+  padding-top: 5px;
+  width: 50px;
+  cursor: pointer;    
+}
+
+mat-icon.icon:last-child {
+  text-align: right;
+}
+
+mat-icon.button {
+  padding-top: 11px;
+}
+
+mat-toolbar {
+  z-index: 5;
+}
+
+.is-mobile toolbar {
+  position: fixed;
+}
+
+@media only screen and (min-width: 600px) {
+  mat-nav-list {
+    //min-width: 400px;
+  }
+}
+
+@media only screen and (max-width: 599px) {
+  mat-sidenav {
+    width: 90%;
+  }
+}
+
+mat-sidenav-container {
+  flex: 1;   
+  background-color: mat-color($mat-green, 50);
+}
+
+mat-sidenav-content {
+  margin: 0px;
+  padding: 0px;
+  background-color: mat-color($mat-green, 50);
+  color: black;
+}
+
+.main-container {
+  padding: 5px;  
+}
+
+.right {
+  padding: 10px;
+  background-color: mat-color($mat-green, 50);
+  border-color: none;  
+}
+
+@media only screen and (max-width: 727px) {
+  .right {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 728px) {
+  .right {
+    width: 728px;
+  }
+}
+
+.mat-drawer-transition .mat-drawer-content {
+  transition-duration: 0s !important;
+}
+
+button {
+  margin-left: 2px;
+  margin-right: 2px;
+}

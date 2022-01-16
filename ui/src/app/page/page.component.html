@@ -1,0 +1,12 @@
+<ng-container *mobxAutorun="{ detach: false }">
+  <div *ngIf="nav.loading" class="global__loading">
+    <mat-spinner style="margin:0 auto;" mode="indeterminate"></mat-spinner>
+  </div>
+
+  <div *ngIf="!nav.loading">    
+    <pre     
+    (click)="click($event)"
+    [innerHtml]="nav.loadedPage">
+    </pre>
+  </div>
+</ng-container>
