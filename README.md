@@ -4,7 +4,7 @@ Nice mobile friendly UI to YLE's tekstitelevisio
 
 Technologies
 
-- Angular 7
+- Angular 13
 - Netcore 3.1
 
 ## Instructions for developers
